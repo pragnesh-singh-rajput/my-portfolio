@@ -4,18 +4,18 @@
   box-sizing: border-box;
 }
 
-:root {
-  --title: #fff;
-  --background-color: #222222;
-  --login-background: #181a1b;
-  --border-color: #a0a0a0;
+:root.dark {
+  --title: #000;
+  --background-color: #f1f1f1;
+  --login-background: #fff;
+  --border-color: #353535;
   --red: #ff3d3d;
-  --input-background: #181a1b;
+  --input-background: #fff;
   --base-color: #a23eff;
-  --shadow: 255, 255, 255;
+  --shadow: 0, 0, 0;
 }
 
-:root.dark {
+:root {
   --title: #fff;
   --background-color: #222222;
   --login-background: #181a1b;

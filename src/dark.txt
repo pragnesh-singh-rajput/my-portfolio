@@ -1,0 +1,12 @@
+global.js 
+
+:root {
+  --title: #000;
+  --background-color: #f1f1f1;
+  --login-background: #fff;
+  --border-color: #353535;
+  --red: #ff3d3d;
+  --input-background: #fff;
+  --base-color: #a23eff;
+  --shadow: 0, 0, 0;
+}
