@@ -1,6 +1,6 @@
 // dark mode
 const buttonTheme = document.querySelector('#dark-mode-button')
-const colors = document.querySelector(':root')
+const colors = document.querySelector(':root.dark')
 
 buttonTheme.onclick = function () {
   colors.classList.toggle('dark')
