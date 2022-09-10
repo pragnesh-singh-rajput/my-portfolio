@@ -17,10 +17,9 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../src/style.css" />
-    <script defer src="../src/script-register.js"></script>
-    <script defer src="../src/global.js"></script>
-    <title>Register Page</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <script defer src="src/global.js"></script>
+    <title>Login Page</title>
   </head>
   <body>
     <div id="top">
@@ -44,18 +43,9 @@
     </div>
     <div class="container">
       <div class="wrapper">
-        <h1>Register</h1>
+        <h1>Login</h1>
         <form action="#" method="GET" class="inputs">
-          <div class="error">The fields must be filled.</div>
-          <label class="sr-only" for="name">Name</label>
-          <input
-            type="text"
-            required
-            placeholder="Your Name"
-            id="name"
-            minlength="4"
-            autocomplete="none"
-          />
+          <div class="error">Os campos devem ser preenchidos</div>
           <label class="sr-only" for="email">Email</label>
           <input
             type="email"
@@ -77,11 +67,11 @@
             <label for="show-password">Show Password</label>
           </div>
 
-          <button>Register</button>
+          <button>Login</button>
         </form>
         <div class="register">
-          <p>Already have an account?</p>
-          <a href="../login/index.html">Login</a>
+          <p>New User?</p>
+          <a href="../register/index.html">Register</a>
         </div>
       </div>
     </div>
