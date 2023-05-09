@@ -108,7 +108,6 @@ def jarvis():
                search_url = "https://www.google.com/search?q=" + query
                webbrowser.open(search_url)
 
-
             # Answer a question
             elif "what" in command or "who" in command or "where" in command or "when" in command or "how" in command:
                 speak("Let me look that up for you.")
@@ -145,8 +144,7 @@ def jarvis():
                     speak(f"Overall, people seem to have a negative sentiment about {topic}.")
                 else:
                     speak(f"Overall, people seem to have a neutral sentiment about {topic}.")
-
-
+        
 
             # Catch-all response for unrecognized commands
             else:
@@ -155,6 +153,8 @@ def jarvis():
         except sr.UnknownValueError:
             print("Sorry, I didn't catch that. Could you please repeat?")
             speak("Sorry, I didn't catch that. Could you please repeat?")
+
+
 
 def speak(text):
     engine = pyttsx3.init()
