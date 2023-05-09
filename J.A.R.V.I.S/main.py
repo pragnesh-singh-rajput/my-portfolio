@@ -1,3 +1,4 @@
+import os
 import datetime
 import pyttsx3
 import speech_recognition as sr
@@ -28,15 +29,6 @@ def jarvis():
     # Set up OpenAI API
     openai.api_key = "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"
 
-    # Greet the user based on the time of day
-    now = datetime.datetime.now()
-    if now.hour < 12:
-        speak("Good morning, sir.")
-    elif now.hour < 18:
-        speak("Good afternoon, sir.")
-    else:
-        speak("Good evening, sir.")
-
     # Enter standby mode
     standby = True
 
@@ -53,12 +45,19 @@ def jarvis():
 
             # Wake up JARVIS
             if "jarvis" in command:
-                speak("Yes, sir? How may I assist you?")
-                standby = False
+
+                # Greet the user based on the time of day
+                now = datetime.datetime.now()
+            if now.hour < 12:
+                      speak("Good morning sir, Jarvis Here how may i help you?")
+            elif now.hour < 18:
+                      speak("Good afternoon sir, Jarvis Here how may i help you?")
+            else:
+                      speak("Good evening sir, Jarvis Here how may i help you?")
+            standby = False
 
         except sr.UnknownValueError:
             print("Sorry, I didn't catch that. Could you please repeat?")
-            speak("Sorry, I didn't catch that. Could you please repeat?")
 
     # Process voice commands
     while not standby:
@@ -73,12 +72,27 @@ def jarvis():
             print(f"User said: {command}")
 
             # Turn off JARVIS
-            if "thank you jarvis" in command:
-                speak("You're welcome, sir. Goodbye.")
-                standby = True
+            if "leave" in command:
+                 speak("Jarvis signing off, see you soon sir.")
+                 break
+
+            # StandBy mode
+            elif "thank you jarvis" in command:
+                speak("You're welcome, sir.")
+                jarvis()
+
+            # Shut Down System
+            elif "shutdown" in command:
+                 speak("Initiating System Shut down.")
+                 os.system("shutdown /s /t 1")
+
+            # Restart System
+            elif "restart" in command:
+                 speak("Initiating System Restart.")
+                 os.system("shutdown /r /t 1")
 
             # Get the current time
-            elif "what time is it" in command:
+            elif "what time is it" in command or "What is the time" in command:
                 now = datetime.datetime.now()
                 speak(f"The time is {now.strftime('%I:%M %p')}")
 
@@ -87,22 +101,28 @@ def jarvis():
                 now = datetime.datetime.now()
                 speak(f"Today is {now.strftime('%B %d, %Y')}")
 
-                # Search the web
+            # Search the web
             elif "search" in command:
-                query = command.replace("search", "")
-                speak(f"Searching for {query} on Google.")
-                search_url = "https://www.google.com/search?q=" + query
-                webbrowser.open(search_url)
+               query = command.replace("search", "")
+               speak(f"Searching for {query} on Google.")
+               search_url = "https://www.google.com/search?q=" + query
+               webbrowser.open(search_url)
 
 
             # Answer a question
-            elif "what is" in command or "who is" in command or "where is" in command or "when is" in command:
+            elif "what" in command or "who" in command or "where" in command or "when" in command or "how" in command:
                 speak("Let me look that up for you.")
                 question = command
                 search_results = google_search(question)
                 webbrowser.open(f"https://www.google.com/search?q={question}")
-                speak(search_results)            
-                 
+                speak(search_results) 
+
+            # Open Youtube
+            elif "open youtube" in command:
+                 speak("Opening youtube")
+                 webbrowser.open(f"https://www.youtube.com/")
+
+            # Dev Info
             elif "who made you" in command or "who is your owner" in command or "who is your developer" in command or "who is your dev" in command:
                 speak("sir PragneshKumar Shrikesh Singh also known as Maximus")
 
@@ -126,6 +146,8 @@ def jarvis():
                 else:
                     speak(f"Overall, people seem to have a neutral sentiment about {topic}.")
 
+
+
             # Catch-all response for unrecognized commands
             else:
                 speak("I'm sorry, sir. I don't understand what you mean.")
@@ -136,6 +158,10 @@ def jarvis():
 
 def speak(text):
     engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[0].id)
+    engine.setProperty('rate', 200)
+    engine.setProperty('volume', 1)
     engine.say(text)
     engine.runAndWait()
 

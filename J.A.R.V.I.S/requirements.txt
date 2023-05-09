@@ -1,0 +1,7 @@
+datetime
+pyttsx3
+speechrecognition
+openai
+nltk
+beautifulsoup4
+requests
