@@ -64,4 +64,6 @@ inputPassword.addEventListener('invalid', function (event) {
     ? null
     : (error.innerText = 'Invalid Email/Password'),
     error.classList.add('show')
+
+    
 })

@@ -11,18 +11,18 @@
   --border-color: #353535;
   --red: #ff3d3d;
   --input-background: #fff;
-  --base-color: #a23eff;
+  --base-color: #1c7d32;
   --shadow: 0, 0, 0;
 }
 
 :root {
   --title: #fff;
-  --background-color: #171717;
+  --background-color: #010e1b;
   --login-background: #181a1b;
   --border-color: #a0a0a0;
   --red: #ff3d3d;
   --input-background: #181a1b;
-  --base-color: #a23eff;
+  --base-color: #1c7d32;
   --shadow: 255, 255, 255;
 }
 
@@ -228,7 +228,7 @@ input#password {
 
 .register {
   display: flex;
-  margin-bottom: 1.7rem;
+  margin-bottom: 3px;
 }
 
 .register a {
@@ -255,4 +255,31 @@ input#password {
 
 .skills-img{
   width: 5px;
+}
+
+.home-button{
+  display: flex;
+  margin-bottom: 0.1rem;
+}
+
+.home-button a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--base-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.home-button a:hover {
+  text-decoration: underline;
+}
+
+.home-button p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--border-color);
+  margin-right: 0.2rem;
+  transition: color 0.3s;
 }
